@@ -8,7 +8,7 @@ public interface IMessagePackage {
 
   int getSerial();
 
-  byte[] getDatas();
+  byte[] getData();
 
   IMessageSender getMessageSender();
 
