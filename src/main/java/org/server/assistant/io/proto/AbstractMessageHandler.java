@@ -146,7 +146,7 @@ public abstract class AbstractMessageHandler extends MessageHandler {
     this.errorHandler = errorHandler;
   }
 
-  void setThreadTypes(TIntObjectMap<IThreadType> threadTypes) {
+  public void setThreadTypes(TIntObjectMap<IThreadType> threadTypes) {
     this.threadTypes = new TUnmodifiableIntObjectMap<>(threadTypes);
   }
 
