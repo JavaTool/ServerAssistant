@@ -10,8 +10,8 @@ public interface IInstanceIdMaker {
    * 生成新的id
    * @return	id
    */
-  int nextInstanceId();
+  long nextInstanceId();
 
-  int currentInstanceId();
+  long currentInstanceId();
 
 }

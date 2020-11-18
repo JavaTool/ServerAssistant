@@ -13,13 +13,13 @@ public interface IInstanceIdManager {
    * @param 	baseValue
    * 			基础值
    */
-  void create(String name, int baseValue);
+  void create(String name, long baseValue);
   /**
    * 生成新的id
    * @param 	name
    * 			名称
    * @return	id
    */
-  int next(String name);
+  long next(String name);
 
 }

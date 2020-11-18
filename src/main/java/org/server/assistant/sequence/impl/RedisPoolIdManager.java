@@ -21,14 +21,14 @@ public class RedisPoolIdManager implements IInstanceIdManager {
   }
 
   @Override
-  public void create(String name, int baseValue) {
+  public void create(String name, long baseValue) {
     if (!idMakers.containsKey(name)) {
       idMakers.put(name, new RedisIdMaker(name, jedis, baseValue));
     }
   }
 
   @Override
-  public int next(String name) {
+  public long next(String name) {
     if (idMakers.containsKey(name)) {
       return idMakers.get(name).nextInstanceId();
     } else {

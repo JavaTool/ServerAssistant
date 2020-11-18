@@ -13,24 +13,24 @@ public class RedisIdMaker implements IInstanceIdMaker {
   /**名称*/
   private final String name;
 
-  public RedisIdMaker(String name, Jedis jedis, int baseValue) {
+  public RedisIdMaker(String name, Jedis jedis, long baseValue) {
     this.jedis = jedis;
     this.name = name;
 
-    int currentValue = jedis.exists(name) ? nextInstanceId() : 0;
-    for (int i = currentValue;i < baseValue;i++) {
+    long currentValue = jedis.exists(name) ? nextInstanceId() : 0;
+    for (long i = currentValue;i < baseValue;i++) {
       nextInstanceId();
     }
   }
 
   @Override
-  public int nextInstanceId() {
+  public long nextInstanceId() {
     return jedis.incr(name).intValue();
   }
 
   @Override
-  public int currentInstanceId() {
-    return Integer.parseInt(jedis.get(name));
+  public long currentInstanceId() {
+    return Long.parseLong(jedis.get(name));
   }
 
 }
